@@ -1,0 +1,50 @@
+﻿<Window x:Class="PORT_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PORT_WPF"
+        mc:Ignorable="d"
+        Title="串口Demo" Height="500" Width="800" FontSize="16">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <GroupBox x:Name="groupBox" Header="通信参数" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Red" BorderThickness="3" FontSize="16">
+            <Grid Margin="0" Width="600" Height="100">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="textBlock" Height="25" Margin="0" TextWrapping="Wrap" Text="串口号" Width="80" TextAlignment="Center" Foreground="DeepSkyBlue"/>
+                <TextBlock x:Name="textBlock1" Height="25" Margin="0" TextWrapping="Wrap" Grid.Column="2" Text="波特率" Width="80" TextAlignment="Center" Foreground="DeepPink"/>
+                <ComboBox x:Name="Combo_PortNo" Grid.Column="1" Height="25" Margin="0" Width="100"/>
+                <ComboBox x:Name="Combo_Baud" Grid.Column="3" Height="25" Margin="0" Width="100">
+                    <ComboBoxItem Content="9600"/>
+                    <ComboBoxItem Content="14400"/>
+                    <ComboBoxItem Content="19200" IsSelected="True"/>
+                    <ComboBoxItem Content="38400"/>
+                    <ComboBoxItem Content="115200"/>
+                    <ComboBoxItem Content="128000"/>
+                </ComboBox>
+                <Button x:Name="Button_Connect" Grid.ColumnSpan="2" Content="建立通信" Height="28" Margin="0" Grid.Row="1" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="SkyBlue" Background="LightGoldenrodYellow" Click="Button_Connect_Click"/>
+                <Button x:Name="Button_Send" Grid.Column="2" Grid.ColumnSpan="2" Content="发送" Height="28" Margin="0" Grid.Row="1" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="HotPink" Background="LightGoldenrodYellow" Click="Button_Send_Click"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="groupBox1" Header="发送" Margin="0" Grid.Row="1" FontSize="16" BorderBrush="LightBlue" BorderThickness="3">
+            <TextBox x:Name="TextBox_Send" Margin="4,0" TextWrapping="Wrap" Text="" BorderThickness="2" BorderBrush="BlueViolet"/>
+        </GroupBox>
+        <GroupBox x:Name="groupBox2" Header="接收" Margin="0" Grid.Row="2" FontSize="16" BorderBrush="LightGreen" BorderThickness="3">
+            <TextBox x:Name="TextBox_Recieved" Margin="4,0" TextWrapping="Wrap" Text="" IsReadOnly="True" BorderThickness="2" BorderBrush="LightPink"/>
+        </GroupBox>
+
+    </Grid>
+</Window>
